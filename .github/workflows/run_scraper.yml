@@ -33,10 +33,12 @@ jobs:
           sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Install dependencies
-        run: pip install -r scraper/requirements.txt
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Run Scraper
-        run: python -m scraper.scraper
+        run: python scraper/scraper.py
 
       - name: Upload Results
         uses: actions/upload-artifact@v4
